@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { selectAuthState } from "../redux/authSlice";
+import Container from "../components/Container";
 
 const Bookmarks = () => {
   const [bookmarks, setBookmarks] = useState([]);
@@ -19,7 +20,11 @@ const Bookmarks = () => {
     fetchData();
   }, []); //eslint-disable-line
 
-  return <div>bookmarks</div>;
+  return (
+    <Container from="bookmarks">
+      <></>
+    </Container>
+  );
 };
 
 export default Bookmarks;

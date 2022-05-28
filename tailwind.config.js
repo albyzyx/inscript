@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontfamily: {
-        "great-vibes": ['"Great Vibes"', "cursive"],
+        vibes: ["Great Vibes", "cursive"],
+        display: ["Roboto Mono", "Menlo", "monospace"],
       },
     },
   },

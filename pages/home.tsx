@@ -17,7 +17,6 @@ const Home = () => {
 
   return (
     <Container from="home">
-      <></>
       <Bookmarks />
     </Container>
   );

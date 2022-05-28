@@ -10,6 +10,7 @@ import axios from "axios";
 import { connectWallet, selectAuthState } from "../redux/authSlice";
 import { uploadImageToIPFS } from "../services/ipfsHelper";
 import { useDispatch } from "react-redux";
+import LeftBar from "../components/LeftBar";
 
 const Write = () => {
   const { address } = useSelector(selectAuthState);
@@ -42,42 +43,36 @@ const Write = () => {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "100%",
-      }}
-    >
-      <ReactQuill
-        className=""
-        style={{
-          width: "70%",
-        }}
-        value={value}
-        onChange={setValue}
-      />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+    <div className="flex h-screen">
+      <LeftBar from="write" />
+      <div className="m-10 w-full flex flex-col items-center justify-center">
         <input
-          placeholder="title"
-          className="border-2 "
+          placeholder="Title"
+          className="border-2 mb-10 text-4xl font-serif text-center focus:outline-none p-2 w-2/5 "
           type="text"
           onChange={(e) => setTitle(e.target.value)}
         />
-        <input
-          required
-          className="ip-field"
-          type="file"
-          name="Asset"
-          onChange={onChange}
+        <ReactQuill
+          className="w-11/12 h-96"
+          value={value}
+          onChange={setValue}
         />
-        <button className="border-2 rounded-lg" onClick={onSubmit}>
-          Submit
-        </button>
+
+        <div className="flex justify-between w-11/12 items-center">
+          <input
+            required
+            className="mt-16"
+            type="file"
+            name="Asset"
+            onChange={onChange}
+          />
+          <button
+            className="border-5 h-8 w-24 mt-16 rounded-xl bg-gray-300 text-black "
+            onClick={onSubmit}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );

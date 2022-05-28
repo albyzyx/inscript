@@ -19,7 +19,7 @@ const Bookmarks = () => {
     fetchData();
   }, []); //eslint-disable-line
 
-  return <div>bookmarks</div>;
+  return <div></div>;
 };
 
 export default Bookmarks;

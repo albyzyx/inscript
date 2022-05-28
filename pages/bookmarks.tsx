@@ -20,11 +20,7 @@ const Bookmarks = () => {
     fetchData();
   }, []); //eslint-disable-line
 
-  return (
-    <Container from="bookmarks">
-      <></>
-    </Container>
-  );
+  return <div></div>;
 };
 
 export default Bookmarks;

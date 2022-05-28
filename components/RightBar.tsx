@@ -33,14 +33,12 @@ const RightBar = () => {
       </div>
       <div className="w-84 my-5 h-1 bg-gray-300 rounded-sm"></div>
       <div className="">
-        <span className="font-bold text-xl"> Reading List</span>
-        <div>
-          Click the
+        <div className="font-bold text-xl mb-3"> Reading List</div>
+        <div className="">
           <span>
-            <MdOutlineBookmarkAdd className="text-2xl" />
+            An article can be easily added to your reading list by clicking this
+            <MdOutlineBookmarkAdd className="text-2xl " />
           </span>
-          on any story to easily add it to your reading list or a custom list
-          that you can share.
         </div>
       </div>
     </div>

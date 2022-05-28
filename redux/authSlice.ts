@@ -4,7 +4,7 @@ import {
   walletConnect,
   walletConnectIfCache,
   walletDisconnect,
-} from "../services/Web3/web3Auth";
+} from "../services/web3/web3Auth";
 
 export const connectWallet = createAsyncThunk(
   "AUTH/CONNECT_WALLET",

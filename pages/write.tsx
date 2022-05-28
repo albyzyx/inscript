@@ -6,26 +6,39 @@ import { useSelector } from "react-redux";
 import "react-quill/dist/quill.snow.css";
 import { uploadArticleToIPFS } from "../services/articleHelper";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
-
-import { selectAuthState } from "../redux/authSlice";
+import axios from "axios";
+import { connectWallet, selectAuthState } from "../redux/authSlice";
 import { uploadImageToIPFS } from "../services/ipfsHelper";
+import { useDispatch } from "react-redux";
 
 const Write = () => {
   const { address } = useSelector(selectAuthState);
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [file, setFile] = useState();
+  const [image, setImage] = useState("");
+  const dispatch = useDispatch();
 
-  const onSubmit = () => {
-    uploadArticleToIPFS(address, title, value);
+  const onSubmit = async () => {
+    if (!address) dispatch(connectWallet());
+    const cid = await uploadArticleToIPFS(address, title, value);
+    console.log(cid);
+    axios
+      .post("http://localhost.tech:8080/articles/create", {
+        address,
+        cid,
+        image,
+      })
+      .then((res) => {
+        console.log(res.data);
+      });
   };
 
   async function onChange(e: any) {
     const file = e.target.files[0];
     setFile(file);
     const fileUrl = window.URL.createObjectURL(file);
-    // await this
-    // uploadImageToIPFS(fileUrl);
+    setImage(await uploadImageToIPFS(fileUrl));
   }
 
   return (
@@ -46,7 +59,12 @@ const Write = () => {
           display: "flex",
           flexDirection: "column",
         }}>
-        <input placeholder="title" className="border-2 " type="text" />
+        <input
+          placeholder="title"
+          className="border-2 "
+          type="text"
+          onChange={(e) => setTitle(e.target.value)}
+        />
         <input
           required
           className="ip-field"

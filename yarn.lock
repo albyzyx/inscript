@@ -4060,11 +4060,6 @@ murmurhash3js-revisited@^3.0.0:
   resolved "https://registry.yarnpkg.com/murmurhash3js-revisited/-/murmurhash3js-revisited-3.0.0.tgz#6bd36e25de8f73394222adc6e41fa3fac08a5869"
   integrity sha512-/sF3ee6zvScXMb1XFJ8gDsSnY+X8PbOyjIuBhtgis10W2Jx4ZjIhikUCIF9c4gpJxVnQIsPAFrSwTCuAjicP6g==
 
-n@^8.2.0:
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/n/-/n-8.2.0.tgz#d8f8a89fdddd1e510111063aae74b9d7b5da8b96"
-  integrity sha512-qv+jwJoXaV94C+uASaLS/Qe/iprgvQKe+5hqg6YvUH8mqe5ysgjby875pUVLLWieGFywipEO/J/bgekYbC18Jw==
-
 nanoid@^3.0.2, nanoid@^3.1.20, nanoid@^3.1.23, nanoid@^3.1.30, nanoid@^3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"

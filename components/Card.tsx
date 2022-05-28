@@ -23,18 +23,20 @@ const Card = () => {
             <span>...</span>
           </div>
         </div>
-        <div className=" w-36 h-36 ml-7 mb-2 bg-orange-300 "></div>
+        <div className=" w-36 h-36 ml-6 mt-5 bg-orange-300 "></div>
       </div>
-      <div className="flex justify-start items-center">
-        <div className="bg-gray-300 m-1 ml-5  text-gray-700 rounded-full px-3 py-1">
-          Self Improvement
+      <div className="flex w-11/12 items-center justify-between">
+        <div className="flex justify-start items-center">
+          <div className="bg-gray-300 m-1 ml-5  text-gray-700 rounded-full px-3 py-1">
+            Self Improvement
+          </div>
+          <div className="font-light mx-3">12 min read</div>
+          <div className="font-light">. Selected for you</div>
         </div>
-        <div className="font-light mx-3">12 min read</div>
-        <div className="font-light">. Selected for you</div>
+        <div className="w-8 h-8">
+          {/* {from === "bookmark" ? <MdOutlineBookmarkAdd /> : <IoMdBookmark />} */}
+        </div>
       </div>
-      {/* <div className="flex justify-end items-center">
-        {from === "bookmark" ? <MdOutlineBookmarkAdd /> : <IoMdBookmark />}
-      </div> */}
 
       <div className="my-3 w-full rounded-sm h-1  bg-gray-300"></div>
     </div>

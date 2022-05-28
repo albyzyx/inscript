@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
-import WalletConnect from "../components/WalletConnect";
-
-const onWalletConnect = () => {};
+import React from "react";
+import Container from "../components/Container";
 
 const Home = () => {
   return (
-    <div>
-      <WalletConnect />
-    </div>
+    <Container from="home">
+      <></>
+    </Container>
   );
 };
 

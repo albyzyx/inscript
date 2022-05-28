@@ -24,3 +24,9 @@ export const getJSONFromIpfs = async (cid: string) => {
       });
   });
 };
+
+export const uploadImageToIPFS = async (imageBlobURL: string) => {
+  let blob = await fetch(imageBlobURL).then((r) => r.blob());
+  const cid = await client.storeBlob(blob);
+  return cid;
+};

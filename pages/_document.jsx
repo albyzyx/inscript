@@ -33,24 +33,21 @@ class MyDocument extends Document {
             media="print"
             onLoad="this.media='all'"
           />
-
-          <link
-            rel="preconnect"
-            as="style"
-            href="https://fonts.googleapis.com"
-          />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="true"
-          />
           <link
             href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
             rel="stylesheet"
             media="print"
             onLoad="this.media='all'"
           />
-
+          <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400;700&display=swap"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+            rel="stylesheet"
+          />
           <noscript>
             <link
               href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"

@@ -6,8 +6,8 @@ import { FaEdit, FaRegEdit, FaUserCircle } from "react-icons/Fa";
 
 const BottomBar = ({ from }: { from: any }) => {
   return (
-    <div className="flex items-center justify-between border-r-4 md:hidden">
-      <div className="text-3xl flex  gap-5 ">
+    <div className="fixed bottom-0 w-full bg-white flex items-center justify-between  md:hidden">
+      <div className="pl-8 text-3xl flex gap-8">
         {from === "home" ? <AiFillHome /> : <AiOutlineHome />}
         {from === "bookmark" ? <BsBookmarkStarFill /> : <BsBookmarkStar />}
         {from === "article" ? <RiArticleFill /> : <RiArticleLine />}

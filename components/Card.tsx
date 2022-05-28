@@ -8,7 +8,7 @@ const Card = () => {
         <div className="ml-3 mr-2 font-normal">Evans Crossby</div>
         <span className="font-light">. May 26</span>
       </div>
-      <div className="font-bold text-3xl">
+      <div className="font-bold m-3 text-3xl">
         15 Books You Should Read Atleast Once In Your Life Before You Die!
       </div>
       <div className="my-3 w-full rounded-sm h-1  bg-gray-300"></div>

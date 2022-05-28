@@ -33,8 +33,7 @@ const Write = () => {
       style={{
         display: "flex",
         width: "100%",
-      }}
-    >
+      }}>
       <ReactQuill
         style={{
           width: "70%",
@@ -46,8 +45,7 @@ const Write = () => {
         style={{
           display: "flex",
           flexDirection: "column",
-        }}
-      >
+        }}>
         <input placeholder="title" className="border-2 " type="text" />
         <input
           required

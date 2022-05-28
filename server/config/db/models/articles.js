@@ -6,6 +6,12 @@ const schema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    author_address: {
+      type: String,
+    },
+    author_name: {
+      type: String,
+    },
     likes: {
       type: Number,
       default: 0,

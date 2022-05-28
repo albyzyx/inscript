@@ -3,19 +3,9 @@ const { type } = require("os");
 
 const schema = new mongoose.Schema(
   {
-    uid: {
-      type: String,
-      required: true,
-    },
-    articles: [
-      {
-        cid: {
-          type: String,
-        },
-      },
-    ],
     wallet_address: {
       type: String,
+      required: true,
     },
     profile_image: {
       type: String,

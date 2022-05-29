@@ -19,13 +19,12 @@ const Bookmarks = () => {
         }
       );
       setBookmarks(response.data.data.articles);
-      console.log(response.data.data.articles);
     }
     fetchData();
   }, []); //eslint-disable-line
 
   return (
-    <Container from="bookmarks" data={bookmarks}>
+    <Container from="bookmarks" data={bookmarks} title="Bookmarks - Inscript">
       <></>
     </Container>
   );

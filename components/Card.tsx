@@ -7,8 +7,15 @@ import { useSelector } from "react-redux";
 import { connectWallet, selectAuthState } from "../redux/authSlice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import Image from "next/image";
 
-const Card = ({ element }: { element: any }) => {
+const Card = ({
+  element,
+  isBookmarked,
+}: {
+  element: any;
+  isBookmarked: Boolean;
+}) => {
   const [liked, setLiked] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
   const { address } = useSelector(selectAuthState);
@@ -17,7 +24,6 @@ const Card = ({ element }: { element: any }) => {
   useEffect(() => {
     if (!address) dispatch(connectWallet());
   }, []);
-
   const bookmark = async () => {
     const response = await axios.post(
       "http://localhost:8080/articles/bookmark",
@@ -58,7 +64,18 @@ const Card = ({ element }: { element: any }) => {
                 <span>...</span>
               </div>
             </div>
-            <div className=" w-36 h-36 ml-7 mb-2 bg-orange-300 "></div>
+            {element.image_url ? (
+              <Image
+                src={`https:/nftstorage.link/ipfs/${element.image_url}`}
+                alt="hi"
+                width={16}
+                height={9}
+                layout="responsive"
+                objectFit="contain"
+              />
+            ) : (
+              <div className=" w-36 h-36 ml-7 mb-2 rounded-full bg-purple-400"></div>
+            )}
           </div>
         </div>
       </Link>
@@ -71,7 +88,7 @@ const Card = ({ element }: { element: any }) => {
           <div className="font-light">. Selected for you</div>
         </div>
         <div className="flex gap-2 items-center text-3xl">
-          {!bookmarked ? (
+          {!bookmarked && !isBookmarked ? (
             <MdOutlineBookmarkAdd
               className="cursor-pointer"
               onClick={bookmark}

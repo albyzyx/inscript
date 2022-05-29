@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import LeftBar from "../components/LeftBar";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const Write = () => {
   const { address } = useSelector(selectAuthState);
@@ -51,37 +52,42 @@ const Write = () => {
   }
 
   return (
-    <div className="flex h-screen">
-      <LeftBar from="write" />
-      <div className="m-10 w-full flex flex-col items-center justify-center">
-        <input
-          placeholder="Title"
-          className="border-2 mb-10 text-4xl font-serif text-center focus:outline-none p-2 w-2/5 "
-          type="text"
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <ReactQuill
-          className="w-11/12 h-96"
-          value={value}
-          onChange={setValue}
-        />
-
-        <div className="flex justify-between w-11/12 items-center">
+    <>
+      <Head>
+        <title>Inscript</title>
+      </Head>
+      <div className="flex h-screen">
+        <LeftBar from="write" />
+        <div className="m-10 w-full flex flex-col items-center justify-center">
           <input
-            required
-            className="mt-16"
-            type="file"
-            name="Asset"
-            onChange={onChange}
+            placeholder="Title"
+            className="border-2 mb-10 text-4xl font-serif text-center focus:outline-none p-2 w-2/5 "
+            type="text"
+            onChange={(e) => setTitle(e.target.value)}
           />
-          <button
-            className="border-5 h-8 w-24 mt-16 rounded-xl bg-gray-300 text-black "
-            onClick={onSubmit}>
-            Submit
-          </button>
+          <ReactQuill
+            className="w-11/12 h-96"
+            value={value}
+            onChange={setValue}
+          />
+
+          <div className="flex justify-between w-11/12 items-center">
+            <input
+              required
+              className="mt-16"
+              type="file"
+              name="Asset"
+              onChange={onChange}
+            />
+            <button
+              className="border-5 h-8 w-24 mt-16 rounded-xl bg-gray-300 text-black "
+              onClick={onSubmit}>
+              Submit
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

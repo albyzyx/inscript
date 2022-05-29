@@ -6,6 +6,7 @@ import BottomBar from "./BottomBar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
+import ReactTooltip from "react-tooltip";
 
 const Container = ({
   children,
@@ -44,6 +45,7 @@ const Container = ({
           pauseOnHover
         />
       </main>
+      <ReactTooltip />
     </>
   );
 };

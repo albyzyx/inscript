@@ -4,7 +4,7 @@ import Container from "../components/Container";
 import { selectAuthState } from "../redux/authSlice";
 import axios from "axios";
 
-const Articles = () => {
+const MyArticles = () => {
   const [articles, setArticles] = useState([]);
   const { address } = useSelector(selectAuthState);
   useEffect(() => {
@@ -19,10 +19,10 @@ const Articles = () => {
   }, []); //eslint-disable-line
   console.log(articles);
   return (
-    <Container from="articles">
+    <Container from="myArticles">
       <div></div>
     </Container>
   );
 };
 
-export default Articles;
+export default MyArticles;

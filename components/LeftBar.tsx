@@ -17,8 +17,8 @@ const Navbar = ({ from }: { from: String }) => {
           <Link href="/bookmarks">
             {from === "bookmarks" ? <BsBookmarkStarFill /> : <BsBookmarkStar />}
           </Link>
-          <Link href="/articles">
-            {from === "articles" ? <RiArticleFill /> : <RiArticleLine />}
+          <Link href="/myArticles">
+            {from === "myArticles" ? <RiArticleFill /> : <RiArticleLine />}
           </Link>
         </div>
         <div className="w-8 h-1 my-5 bg-gray-300 rounded-sm"></div>

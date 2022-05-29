@@ -11,7 +11,7 @@ const BottomBar = ({ from }: { from: any }) => {
   const home = router.pathname === "/home";
   const bookmarks = router.pathname === "/bookmarks";
   const write = router.pathname === "/write";
-  const articles = router.pathname === "/articles";
+  const myArticles = router.pathname === "/myArticles";
 
   return (
     <div className="fixed bottom-0 w-full bg-white flex items-center justify-between  md:hidden ">
@@ -20,8 +20,8 @@ const BottomBar = ({ from }: { from: any }) => {
         <Link href="/bookmarks">
           {bookmarks ? <BsBookmarkStarFill /> : <BsBookmarkStar />}
         </Link>
-        <Link href="/articles">
-          {articles ? <RiArticleFill /> : <RiArticleLine />}
+        <Link href="/myArticles">
+          {myArticles ? <RiArticleFill /> : <RiArticleLine />}
         </Link>
       </div>
       <div className="w-1 h-8 my-5 bg-gray-300 rounded-sm"></div>

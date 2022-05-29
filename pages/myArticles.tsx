@@ -10,16 +10,15 @@ const MyArticles = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await axios.post(
-        "http://127.0.0.1/8080/users/articles",
+        "http://127.0.0.1:8080/users/articles",
         { address }
       );
       setArticles(response.data.data.articles);
     }
     fetchData();
   }, []); //eslint-disable-line
-  console.log(articles);
   return (
-    <Container from="myArticles">
+    <Container from="myArticles" data={articles}>
       <div></div>
     </Container>
   );

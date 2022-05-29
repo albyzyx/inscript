@@ -51,11 +51,24 @@ router.post("/bookmarked", async (req, res, next) => {
   try {
     const user = await USERS.findOne({ wallet_address: req.body.address });
 
+    if (!user)
+      return res
+        .status(400)
+        .json({ success: false, message: "No such user exists", data: {} });
+
+    var articles = [];
+
+    for (var i = 0; i < user.bookmarked_articles.length; i++) {
+      articles.push(
+        await ARTICLES.findOne({ cid: user.bookmarked_articles[i] })
+      );
+    }
+
     if (user)
       res.status(200).json({
         success: true,
         message: "",
-        data: { articles: user.bookmarked_articles },
+        data: { articles },
       });
     else
       res.status(200).json({
@@ -63,6 +76,29 @@ router.post("/bookmarked", async (req, res, next) => {
         message: "No such user with the address ",
         data: {},
       });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+      data: { error },
+    });
+  }
+});
+
+router.post("/user-bookmarks", async (req, res, next) => {
+  try {
+    const user = await USERS.findOne({ wallet_address: req.body.address });
+
+    if (!user)
+      return res
+        .status(400)
+        .json({ success: false, message: "No such user exists", data: {} });
+
+    res.status(200).json({
+      success: true,
+      message: "",
+      data: { articles: user.bookmarked_articles },
+    });
   } catch (error) {
     res.status(500).json({
       success: false,

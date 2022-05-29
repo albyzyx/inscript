@@ -7,11 +7,8 @@ import { useSelector } from "react-redux";
 import { connectWallet, selectAuthState } from "../redux/authSlice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-<<<<<<< HEAD
 import { AppDispatch } from "../redux/store";
-=======
 import Image from "next/image";
->>>>>>> a976086f7e9e51bb0f24d4d61feae8c77738e108
 
 const Card = ({
   element,

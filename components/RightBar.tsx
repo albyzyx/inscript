@@ -1,6 +1,8 @@
 import React from "react";
 import Searchbar from "./Searchbar";
 import { MdOutlineBookmarkAdd } from "react-icons/Md";
+import Image from "next/image";
+import testAd from "./testAd.png";
 
 const RightBar = () => {
   return (
@@ -39,6 +41,15 @@ const RightBar = () => {
             An article can be easily added to your reading list by clicking this
             <MdOutlineBookmarkAdd className="text-2xl " />
           </span>
+        </div>
+        <div className=" rounded-xl ">
+          <Image
+            src={testAd}
+            alt="hexads"
+            style={{
+              objectFit: "cover",
+            }}
+          />
         </div>
       </div>
     </div>

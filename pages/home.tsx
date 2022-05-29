@@ -24,6 +24,7 @@ const customStyles = {
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
+  var [bookmarked, setBookmarked] = useState([]);
   const { address } = useSelector(selectAuthState);
   const [name, setName] = useState("");
   const [open, setOpen] = useState(false);

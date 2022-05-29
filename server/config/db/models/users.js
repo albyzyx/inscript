@@ -15,9 +15,7 @@ const schema = new mongoose.Schema(
     },
     bookmarked_articles: [
       {
-        cid: {
-          type: String,
-        },
+        type: String,
       },
     ],
     recommends: [{ type: String }],

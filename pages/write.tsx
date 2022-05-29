@@ -10,10 +10,11 @@ import { connectWallet, selectAuthState } from "../redux/authSlice";
 import { uploadImageToIPFS } from "../services/ipfsHelper";
 import { useDispatch } from "react-redux";
 import LeftBar from "../components/LeftBar";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { useRouter } from "next/router";
 import { AppDispatch } from "../redux/store";
 import Head from "next/head";
+import "react-toastify/dist/ReactToastify.css";
 
 const Write = () => {
   const { address } = useSelector(selectAuthState);
@@ -30,19 +31,36 @@ const Write = () => {
 
   const onSubmit = async () => {
     if (!address) dispatch(connectWallet());
-    const cid = await uploadArticleToIPFS(address, title, value);
-    console.log(cid);
-    axios
-      .post("http://localhost:8080/articles/create", {
+    // const cid = await uploadArticleToIPFS(address, title, value);
+    if (!title || !value || title === "" || value === "") {
+      return toast.error("Title and content is mandatory");
+    }
+    const cid = await toast.promise(
+      uploadArticleToIPFS(address, title, value),
+      {
+        pending: "Uploading to IPFS. Please wait...",
+        success: "Success",
+        error: "Something Happened :(",
+      }
+    );
+    const response = await toast.promise(
+      axios.post("http://localhost.tech:8080/articles/create", {
         address,
         cid,
         image,
-      })
-      .then((res) => {
-        console.log(res.data);
-        toast.success("Blog Published successfully");
-        router.push("/home");
-      });
+      }),
+      {
+        pending: "Finalizing Things...",
+        success: "Success",
+        error: "Something Happened :(",
+      }
+    );
+    if (response.data.success) {
+      toast.success("Blog Published successfully");
+      router.push(`/article/${response.data.data.cid}`);
+    } else {
+      toast.error("Something Happened :(");
+    }
   };
 
   async function onChange(e: any) {
@@ -89,6 +107,18 @@ const Write = () => {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        theme="dark"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 };

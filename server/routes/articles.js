@@ -72,9 +72,10 @@ router.post("/bookmark", async (req, res, next) => {
 
     console.log(user);
 
-    user.bookmarked_articles.push(cid);
-
-    await user.save();
+    if (!user.bookmarked_articles.includes(cid)) {
+      user.bookmarked_articles.push(cid);
+      await user.save();
+    }
 
     res.status(200).json({
       success: true,

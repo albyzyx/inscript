@@ -10,7 +10,7 @@ const ArticleBody = ({ data }: { data: any }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.post(
-        "http://localhost:8080/users/user-bookmarks",
+        "https://inscript-api.herokuapp.com/users/user-bookmarks",
         { address }
       );
       setBookmarks(response.data.data.articles);

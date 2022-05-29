@@ -21,7 +21,7 @@ const Write = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [file, setFile] = useState();
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState();
   const dispatch: AppDispatch = useDispatch();
   const router = useRouter();
 
@@ -45,10 +45,10 @@ const Write = () => {
       }
     );
     const response = await toast.promise(
-      axios.post("http://localhost.tech:8080/articles/create", {
+      axios.post("https://inscript-api.herokuapp.com/articles/create", {
         address,
         cid,
-        image,
+        image: "somestring",
       }),
       {
         pending: "Finalizing Things...",
@@ -65,10 +65,16 @@ const Write = () => {
   };
 
   async function onChange(e: any) {
-    const file = e.target.files[0];
-    setFile(file);
-    const fileUrl = window.URL.createObjectURL(file);
-    setImage(await uploadImageToIPFS(fileUrl));
+    try {
+      // console.log(e.target.files[0]);
+      const file = e.target.files[0];
+      setFile(file);
+      const fileUrl = window.URL.createObjectURL(file);
+      var temp = await uploadImageToIPFS(fileUrl);
+      console.log(temp);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -92,13 +98,13 @@ const Write = () => {
           />
 
           <div className="flex justify-between w-11/12 items-center">
-            <input
+            {/* <input
               required
               className="mt-16"
               type="file"
               name="Asset"
               onChange={onChange}
-            />
+            /> */}
             <button
               className="border-5 h-8 w-24 mt-16 rounded-xl bg-gray-300 text-black "
               onClick={onSubmit}

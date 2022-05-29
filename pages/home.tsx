@@ -45,7 +45,7 @@ const Home = () => {
         "http://127.0.0.1:8080/users/get-name",
         { address: address }
       );
-      if (!response.data.data.username) setOpen(true);
+      if (!response.data.data.username) setOpen(!open);
     };
     if (!address) dispatch(connectWallet());
     else sendData();
@@ -64,7 +64,7 @@ const Home = () => {
   };
 
   return (
-    <Container from="home" data={articles}>
+    <Container from="home" data={articles} title="Home - Inscript">
       <Modal isOpen={open} style={customStyles}>
         <div className="flex flex-col items-start justify-center gap-4">
           <label

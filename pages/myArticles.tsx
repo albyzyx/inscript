@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import Container from "../components/Container";
 import { selectAuthState } from "../redux/authSlice";
 import axios from "axios";
+import Head from "next/head";
 
 const MyArticles = () => {
   const [articles, setArticles] = useState([]);
@@ -18,7 +19,7 @@ const MyArticles = () => {
     fetchData();
   }, []); //eslint-disable-line
   return (
-    <Container from="myArticles" data={articles}>
+    <Container from="myArticles" data={articles} title="My Articles - Inscript">
       <div></div>
     </Container>
   );

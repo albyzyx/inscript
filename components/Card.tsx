@@ -16,7 +16,7 @@ const Card = ({
   element: any;
   isBookmarked: Boolean;
 }) => {
-  const [liked, setLiked] = useState(false);
+  const [liked, setLiked] = useState(0);
   const [bookmarked, setBookmarked] = useState(false);
   const { address } = useSelector(selectAuthState);
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ const Card = ({
       address,
       cid: element.cid,
     });
-    if (response.data.success) setLiked(true);
+    if (response.data.success) setLiked(1);
   };
 
   return (
@@ -101,7 +101,7 @@ const Card = ({
           ) : (
             <div className="flex items-center justify-center">
               <AiFillHeart fill="red" />
-              <span className="text-2xl">{element.likes}</span>
+              <span className="text-2xl">{element.likes + liked}</span>
             </div>
           )}
         </div>

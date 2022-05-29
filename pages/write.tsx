@@ -13,6 +13,8 @@ import LeftBar from "../components/LeftBar";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Write = () => {
   const { address } = useSelector(selectAuthState);
@@ -29,8 +31,28 @@ const Write = () => {
 
   const onSubmit = async () => {
     if (!address) dispatch(connectWallet());
-    const cid = await uploadArticleToIPFS(address, title, value);
-    console.log(cid);
+    // const cid = await uploadArticleToIPFS(address, title, value);
+    if (!title || !value) {
+      toast.error("Title and content is mandatory");
+    }
+    toast.success("hello");
+    const cid = await toast.promise(
+      uploadArticleToIPFS(address, title, value),
+      {
+        pending: "Uploading to IPFS. Please wait...",
+        success: {
+          render({ data }) {
+            console.log(data);
+            return `${data}`;
+          },
+        },
+        error: {
+          render({ data }) {
+            return `${data}`;
+          },
+        },
+      }
+    );
     axios
       .post("http://localhost.tech:8080/articles/create", {
         address,
@@ -87,6 +109,18 @@ const Write = () => {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        theme="dark"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 };

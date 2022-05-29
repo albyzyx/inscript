@@ -41,6 +41,8 @@ const Card = ({
     if (response.data.success) setLiked(1);
   };
 
+  console.log(element);
+
   return (
     <div className="w-full">
       <Link href={`article/${element.cid}`}>
@@ -66,14 +68,13 @@ const Card = ({
               </div>
             </div>
             {element.image_url ? (
-              <Image
-                src={`https:/nftstorage.link/ipfs/${element.image_url}`}
-                alt="hi"
-                width={16}
-                height={9}
-                layout="responsive"
-                objectFit="contain"
-              />
+              <div>
+                <img
+                  src={`https:/nftstorage.link/ipfs/${element.image_url}`}
+                  alt="image"
+                  className="w-20 h-20 object-contain"
+                />
+              </div>
             ) : (
               <div className=" w-36 h-36 ml-7 mb-2 rounded-full bg-purple-400"></div>
             )}
@@ -86,7 +87,6 @@ const Card = ({
             Self Improvement
           </div>
           <div className="font-light mx-3">12 min read</div>
-          <div className="font-light">. Selected for you</div>
         </div>
         <div className="flex gap-2 items-center text-3xl">
           {!bookmarked && !isBookmarked ? (

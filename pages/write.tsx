@@ -69,6 +69,7 @@ const Write = () => {
     setFile(file);
     const fileUrl = window.URL.createObjectURL(file);
     setImage(await uploadImageToIPFS(fileUrl));
+    console.log(image);
   }
 
   return (
@@ -101,8 +102,7 @@ const Write = () => {
             />
             <button
               className="border-5 h-8 w-24 mt-16 rounded-xl bg-gray-300 text-black "
-              onClick={onSubmit}
-            >
+              onClick={onSubmit}>
               Submit
             </button>
           </div>

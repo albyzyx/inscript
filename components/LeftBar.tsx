@@ -1,8 +1,8 @@
 import React from "react";
 import { AiFillHome, AiOutlineHome } from "react-icons/ai";
-import { BsBookmarkStarFill, BsBookmarkStar } from "react-icons/Bs";
-import { RiArticleFill, RiArticleLine } from "react-icons/Ri";
-import { FaEdit, FaRegEdit, FaUserCircle } from "react-icons/Fa";
+import { BsBookmarkStarFill, BsBookmarkStar } from "react-icons/bs";
+import { RiArticleFill, RiArticleLine } from "react-icons/ri";
+import { FaEdit, FaRegEdit, FaUserCircle } from "react-icons/fa";
 import Link from "next/link";
 
 const Navbar = ({ from }: { from: String }) => {

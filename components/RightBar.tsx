@@ -1,6 +1,6 @@
 import React from "react";
 import Searchbar from "./Searchbar";
-import { MdOutlineBookmarkAdd } from "react-icons/Md";
+import { MdOutlineBookmarkAdd } from "react-icons/md";
 import Image from "next/image";
 import testAd from "./testAd.png";
 import { RiAdvertisementFill } from "react-icons/ri";

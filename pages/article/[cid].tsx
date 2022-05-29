@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import LeftBar from "../../components/LeftBar";
 import RightBar from "../../components/RightBar";
-import { MdBookmarkAdd } from "react-icons/Md";
-import { FaTelegram, FaFacebook } from "react-icons/Fa";
-import { ImLinkedin } from "react-icons/Im";
-import { FiLink } from "react-icons/Fi";
+import { MdBookmarkAdd } from "react-icons/md";
+import { FaTelegram, FaFacebook } from "react-icons/fa";
+import { ImLinkedin } from "react-icons/im";
+import { FiLink } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { getJSONFromIpfs } from "../../services/ipfsHelper";
 

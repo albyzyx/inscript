@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { MdOutlineBookmarkAdd } from "react-icons/Md";
-import { IoMdBookmark } from "react-icons/Io";
+import { MdOutlineBookmarkAdd } from "react-icons/md";
+import { IoMdBookmark } from "react-icons/io";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import Link from "next/link";
 import { useSelector } from "react-redux";

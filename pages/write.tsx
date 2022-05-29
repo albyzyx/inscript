@@ -12,11 +12,8 @@ import { useDispatch } from "react-redux";
 import LeftBar from "../components/LeftBar";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
-<<<<<<< HEAD
 import { AppDispatch } from "../redux/store";
-=======
 import Head from "next/head";
->>>>>>> a976086f7e9e51bb0f24d4d61feae8c77738e108
 
 const Write = () => {
   const { address } = useSelector(selectAuthState);
@@ -36,7 +33,7 @@ const Write = () => {
     const cid = await uploadArticleToIPFS(address, title, value);
     console.log(cid);
     axios
-      .post("http://localhost.tech:8080/articles/create", {
+      .post("http://localhost:8080/articles/create", {
         address,
         cid,
         image,
@@ -74,14 +71,6 @@ const Write = () => {
             value={value}
             onChange={setValue}
           />
-<<<<<<< HEAD
-          <button
-            className="border-5 h-8 w-24 mt-16 rounded-xl bg-gray-300 text-black "
-            onClick={onSubmit}
-          >
-            Submit
-          </button>
-=======
 
           <div className="flex justify-between w-11/12 items-center">
             <input
@@ -93,11 +82,11 @@ const Write = () => {
             />
             <button
               className="border-5 h-8 w-24 mt-16 rounded-xl bg-gray-300 text-black "
-              onClick={onSubmit}>
+              onClick={onSubmit}
+            >
               Submit
             </button>
           </div>
->>>>>>> a976086f7e9e51bb0f24d4d61feae8c77738e108
         </div>
       </div>
     </>

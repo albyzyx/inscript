@@ -9,7 +9,8 @@ import { useRouter } from "next/router";
 import { getJSONFromIpfs } from "../../services/ipfsHelper";
 
 import ReactHtmlParser from "react-html-parser";
-
+import axios from "axios";
+import { useSelector } from "react-redux";
 export async function getServerSideProps(context: any) {
   return {
     props: {}, // will be passed to the page component as props
@@ -20,13 +21,33 @@ const Article = () => {
   const router = useRouter();
   const { cid } = router.query;
   const [blogContent, setBlogContent] = useState("");
+  const [title, setTitle] = useState("");
+  const [authorAddress, setAuthorAddress] = useState("");
+  const [authorName, setAuthorName] = useState("");
+
   useEffect(() => {
-    console.log(router);
     getJSONFromIpfs(cid as string).then((data) => {
       setBlogContent(data.content);
-      console.log(data.content);
+      setAuthorAddress(data.author_address);
+      setTitle(data.title);
+      console.log(data);
     });
   }, []);
+
+  useEffect(() => {
+    if (authorAddress !== "") {
+      const fetchData = async () => {
+        const response = await axios.post(
+          "http://127.0.0.1:8080/users/get-name",
+          {
+            address: authorAddress,
+          }
+        );
+        setAuthorName(response.data.data.username);
+      };
+      fetchData();
+    }
+  }, [authorAddress]);
   return (
     <div className="flex h-screen justify-between">
       <LeftBar from="" />
@@ -36,13 +57,11 @@ const Article = () => {
             <div className="bg-purple-400 w-20 h-20 rounded-full"></div>
             <div className="items-center">
               <div className="flex text-xl ">
-                <div className="ml-3 mr-2 text-2xl font-bold">
-                  Evans Crossby
-                </div>
+                <div className="ml-3 mr-2 text-2xl font-bold">{authorName}</div>
               </div>
               <div className="flex ml-1 w-full  items-center justify-between">
                 <div className="flex text-lg items-center">
-                  <span className="font-light pl-2"> May 26</span>
+                  <span className="font-light pl-2"> May 29</span>
                   <div className="font-light mx-3"> . 12 min read</div>
                 </div>
               </div>
@@ -67,9 +86,7 @@ const Article = () => {
             </span>
           </div>
         </div>
-        <div className="font-bold my-10 text-4xl">
-          Ten Principles for Growth as an Engineer
-        </div>
+        <div className="font-bold my-10 text-4xl">{title}</div>
         <div className="text-xl my-4">{ReactHtmlParser(blogContent)}</div>
       </div>
       <RightBar />

@@ -54,7 +54,10 @@ const Article = () => {
       <div className="w-11/12  mt-16 mx-20">
         <div className="flex items-center justify-between">
           <div className="flex gap-4 items-center">
-            <div className="bg-purple-400 w-20 h-20 rounded-full"></div>
+            <img
+              className="bg-purple-400 w-20 h-20 rounded-full"
+              src={`https://avatars.dicebear.com/api/identicon/your-${authorAddress}custom-seed.svg`}
+            />
             <div className="items-center">
               <div className="flex text-xl ">
                 <div className="ml-3 mr-2 text-2xl font-bold">{authorName}</div>

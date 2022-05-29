@@ -5,8 +5,11 @@ import { MdBookmarkAdd } from "react-icons/Md";
 import { FaTelegram, FaFacebook } from "react-icons/Fa";
 import { ImLinkedin } from "react-icons/Im";
 import { FiLink } from "react-icons/Fi";
+import { useRouter } from "next/router";
 
 const Article = () => {
+  const router = useRouter();
+  const cid = router.query;
   return (
     <div className="flex h-screen justify-between">
       <LeftBar from="" />

@@ -12,19 +12,31 @@ const Navbar = ({ from }: { from: String }) => {
       <div className="p-6">
         <div className="text-3xl flex flex-col gap-5 ">
           <Link href="/home">
-            {from === "home" ? <AiFillHome /> : <AiOutlineHome />}
+            <div className="cursor-pointer">
+              {from === "home" ? <AiFillHome /> : <AiOutlineHome />}
+            </div>
           </Link>
           <Link href="/bookmarks">
-            {from === "bookmarks" ? <BsBookmarkStarFill /> : <BsBookmarkStar />}
+            <div className="cursor-pointer">
+              {from === "bookmarks" ? (
+                <BsBookmarkStarFill />
+              ) : (
+                <BsBookmarkStar />
+              )}
+            </div>
           </Link>
           <Link href="/myArticles">
-            {from === "myArticles" ? <RiArticleFill /> : <RiArticleLine />}
+            <div className="cursor-pointer">
+              {from === "myArticles" ? <RiArticleFill /> : <RiArticleLine />}
+            </div>
           </Link>
         </div>
         <div className="w-8 h-1 my-5 bg-gray-300 rounded-sm"></div>
         <div className="text-3xl m-1">
           <Link href="/write">
-            {from === "write" ? <FaEdit /> : <FaRegEdit />}
+            <div className="cursor-pointer">
+              {from === "write" ? <FaEdit /> : <FaRegEdit />}
+            </div>
           </Link>
         </div>
       </div>

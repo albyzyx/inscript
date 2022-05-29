@@ -34,7 +34,7 @@ class MyDocument extends Document {
             onLoad="this.media='all'"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400;700&display=swap"
             rel="stylesheet"
             media="print"
             onLoad="this.media='all'"
@@ -44,13 +44,9 @@ class MyDocument extends Document {
             as="style"
             href="https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400;700&display=swap"
           />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
-            rel="stylesheet"
-          />
           <noscript>
             <link
-              href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+              href="https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400;700&display=swap"
               rel="stylesheet"
             />
             <link

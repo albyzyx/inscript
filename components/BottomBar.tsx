@@ -16,17 +16,29 @@ const BottomBar = ({ from }: { from: any }) => {
   return (
     <div className="fixed bottom-0 w-full bg-white flex items-center justify-between  md:hidden ">
       <div className="pl-8 text-3xl flex gap-8">
-        <Link href="/home">{home ? <AiFillHome /> : <AiOutlineHome />}</Link>
+        <Link href="/home">
+          <div className="cursor-pointer">
+            {home ? <AiFillHome /> : <AiOutlineHome />}
+          </div>
+        </Link>
         <Link href="/bookmarks">
-          {bookmarks ? <BsBookmarkStarFill /> : <BsBookmarkStar />}
+          <div className="cursor-pointer">
+            {bookmarks ? <BsBookmarkStarFill /> : <BsBookmarkStar />}
+          </div>
         </Link>
         <Link href="/myArticles">
-          {myArticles ? <RiArticleFill /> : <RiArticleLine />}
+          <div className="cursor-pointer">
+            {myArticles ? <RiArticleFill /> : <RiArticleLine />}
+          </div>
         </Link>
       </div>
       <div className="w-1 h-8 my-5 bg-gray-300 rounded-sm"></div>
       <div className="text-3xl m-1">
-        <Link href="/write">{write ? <FaEdit /> : <FaRegEdit />}</Link>
+        <Link href="/write">
+          <div className="cursor-pointer">
+            {write ? <FaEdit /> : <FaRegEdit />}
+          </div>
+        </Link>
       </div>
       <div className="text-3xl mr-10 px-6">
         <FaUserCircle />

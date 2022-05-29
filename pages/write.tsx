@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-
 import "react-quill/dist/quill.snow.css";
 import { uploadArticleToIPFS } from "../services/articleHelper";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -11,6 +10,8 @@ import { connectWallet, selectAuthState } from "../redux/authSlice";
 import { uploadImageToIPFS } from "../services/ipfsHelper";
 import { useDispatch } from "react-redux";
 import LeftBar from "../components/LeftBar";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const Write = () => {
   const { address } = useSelector(selectAuthState);
@@ -19,6 +20,11 @@ const Write = () => {
   const [file, setFile] = useState();
   const [image, setImage] = useState("");
   const dispatch = useDispatch();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!address) dispatch(connectWallet());
+  }, []);
 
   const onSubmit = async () => {
     if (!address) dispatch(connectWallet());
@@ -32,6 +38,8 @@ const Write = () => {
       })
       .then((res) => {
         console.log(res.data);
+        toast.success("Blog Published successfully");
+        router.push("/home");
       });
   };
 
@@ -68,8 +76,7 @@ const Write = () => {
           />
           <button
             className="border-5 h-8 w-24 mt-16 rounded-xl bg-gray-300 text-black "
-            onClick={onSubmit}
-          >
+            onClick={onSubmit}>
             Submit
           </button>
         </div>

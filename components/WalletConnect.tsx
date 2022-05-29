@@ -12,7 +12,7 @@ import { ethers } from "ethers";
 
 import { AppDispatch } from "../redux/store";
 import { ChainType } from "../constants/types";
-import { requestChainChange } from "../services/web3/web3Chain";
+import { requestChainChange } from "../services/Web3/web3Chain";
 import { initChain, supportedChains } from "../constants/SupportedChains";
 
 const WalletConnect = () => {

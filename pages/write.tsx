@@ -30,7 +30,8 @@ const Write = () => {
   }, []);
 
   const onSubmit = async () => {
-    if (!address) dispatch(connectWallet());
+    console.log(address);
+    if (!address) return dispatch(connectWallet());
     // const cid = await uploadArticleToIPFS(address, title, value);
     if (!title || !value || title === "" || value === "") {
       return toast.error("Title and content is mandatory");
@@ -57,7 +58,7 @@ const Write = () => {
     );
     if (response.data.success) {
       toast.success("Blog Published successfully");
-      router.push(`/article/${response.data.data.cid}`);
+      router.push(`/article/${response.data.data.article.cid}`);
     } else {
       toast.error("Something Happened :(");
     }

@@ -14,7 +14,7 @@ const BottomBar = ({ from }: { from: any }) => {
   const myArticles = router.pathname === "/myArticles";
 
   return (
-    <div className="fixed bottom-0 w-full bg-white flex items-center justify-between  md:hidden ">
+    <div className="sticky w-full bg-white flex items-center justify-between  md:hidden ">
       <div className="pl-8 text-3xl flex gap-8">
         <Link href="/home">
           <div className="cursor-pointer">

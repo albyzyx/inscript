@@ -3,6 +3,7 @@ import Searchbar from "./Searchbar";
 import { MdOutlineBookmarkAdd } from "react-icons/Md";
 import Image from "next/image";
 import testAd from "./testAd.png";
+import { RiAdvertisementFill } from "react-icons/ri";
 
 const RightBar = () => {
   return (
@@ -33,7 +34,7 @@ const RightBar = () => {
           Psychology
         </span>
       </div>
-      <div className="w-84 my-5 h-1 bg-gray-300 rounded-sm"></div>
+      <div className="w-84 my-3  h-1 bg-gray-300 rounded-sm"></div>
       <div className="">
         <div className="font-bold text-xl mb-3"> Reading List</div>
         <div className="">
@@ -42,7 +43,7 @@ const RightBar = () => {
             <MdOutlineBookmarkAdd className="text-2xl " />
           </span>
         </div>
-        <div className=" rounded-xl ">
+        <div className="relative rounded-xl ">
           <Image
             src={testAd}
             alt="hexads"
@@ -50,6 +51,7 @@ const RightBar = () => {
               objectFit: "cover",
             }}
           />
+          <RiAdvertisementFill className="absolute bottom-2 text-3xl" />
         </div>
       </div>
     </div>

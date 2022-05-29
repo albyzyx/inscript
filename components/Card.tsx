@@ -51,7 +51,10 @@ const Card = ({
       <Link href={`article/${element.cid}`}>
         <div className="cursor-pointer">
           <div className="flex items-center">
-            <div className="bg-purple-400 w-12 h-12 rounded-full"></div>
+            <img
+              className="bg-purple-400 w-12 h-12 rounded-full"
+              src={`https://avatars.dicebear.com/api/identicon/your-${element.cid}custom-seed.svg`}
+            />
             <div className="ml-3 mr-2 font-normal">{element?.author_name}</div>
             <span className="font-light">Recents</span>
           </div>

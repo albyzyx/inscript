@@ -1,5 +1,5 @@
 import React from "react";
-import { AiFillHome, AiOutlineHome } from "react-icons/Ai";
+import { AiFillHome, AiOutlineHome } from "react-icons/ai";
 import { BsBookmarkStarFill, BsBookmarkStar } from "react-icons/Bs";
 import { RiArticleFill, RiArticleLine } from "react-icons/Ri";
 import { FaEdit, FaRegEdit, FaUserCircle } from "react-icons/Fa";

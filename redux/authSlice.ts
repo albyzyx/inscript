@@ -10,7 +10,6 @@ export const connectWallet = createAsyncThunk(
   "AUTH/CONNECT_WALLET",
   (undefined, thunkAPI) => {
     return new Promise((resolve, reject) => {
-      console.log("a");
       walletConnect()
         .then((data) => {
           resolve(data);

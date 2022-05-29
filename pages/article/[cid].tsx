@@ -38,7 +38,7 @@ const Article = () => {
     if (authorAddress !== "") {
       const fetchData = async () => {
         const response = await axios.post(
-          "http://127.0.0.1:8080/users/get-name",
+          "https://inscript-api.herokuapp.com/users/get-name",
           {
             address: authorAddress,
           }

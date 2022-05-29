@@ -33,7 +33,9 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("http://127.0.0.1:8080/articles/get");
+      const response = await axios.get(
+        "https://inscript-api.herokuapp.com/articles/get"
+      );
       setArticles(response.data.data.articles);
     };
     fetchData();
@@ -42,7 +44,7 @@ const Home = () => {
   useEffect(() => {
     const sendData = async () => {
       const response = await axios.post(
-        "http://127.0.0.1:8080/users/get-name",
+        "https://inscript-api.herokuapp.com/users/get-name",
         { address: address }
       );
       if (!response.data.data.username) setOpen(!open);
@@ -52,10 +54,13 @@ const Home = () => {
   }, []); //eslint-disable-line
 
   const addUser = async () => {
-    const response = await axios.post("http://127.0.0.1:8080/users/create", {
-      name,
-      wallet_address: address,
-    });
+    const response = await axios.post(
+      "https://inscript-api.herokuapp.com/users/create",
+      {
+        name,
+        wallet_address: address,
+      }
+    );
     if (response.data.success) {
       toast.success("Logged in Successfully");
       setOpen(!open);
@@ -69,8 +74,7 @@ const Home = () => {
         <div className="flex flex-col items-start justify-center gap-4">
           <label
             htmlFor="name"
-            className="text-2xl flex justify-between items-center w-full"
-          >
+            className="text-2xl flex justify-between items-center w-full">
             <span>Name</span>
             <AiOutlineClose onClick={() => setOpen(!open)} />
           </label>
@@ -83,8 +87,7 @@ const Home = () => {
           />
           <button
             className="px-3 py-2 outline-none border-black border-2 rounded-md self-center"
-            onClick={addUser}
-          >
+            onClick={addUser}>
             Submit
           </button>
         </div>

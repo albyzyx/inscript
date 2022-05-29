@@ -11,7 +11,7 @@ const MyArticles = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await axios.post(
-        "http://127.0.0.1:8080/users/articles",
+        "https://inscript-api.herokuapp.com/users/articles",
         { address }
       );
       setArticles(response.data.data.articles);

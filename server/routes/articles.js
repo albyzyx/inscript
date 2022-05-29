@@ -19,10 +19,12 @@ router.post("/create", async (req, res, next) => {
       author_name: user.name,
       author_address: article_data.author_address,
       title: article_data.title,
-      content: req.body.content || "This is a test string",
+      content: req.body.content || "Click on the card to read the full blog",
       cid: req.body.cid,
-      image_url: req.body.image,
+      image_url: req.body.image || "This is a test string",
     };
+
+    console.log(data);
 
     const article = new ARTICLES(data);
 

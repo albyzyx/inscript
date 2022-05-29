@@ -27,17 +27,20 @@ const Card = ({
   }, []);
   const bookmark = async () => {
     const response = await axios.post(
-      "http://localhost:8080/articles/bookmark",
+      "https://inscript-api.herokuapp.com/articles/bookmark",
       { address, cid: element.cid }
     );
     if (response.data.success) setBookmarked(true);
   };
 
   const like = async () => {
-    const response = await axios.post("http://localhost:8080/articles/like", {
-      address,
-      cid: element.cid,
-    });
+    const response = await axios.post(
+      "https://inscript-api.herokuapp.com/articles/like",
+      {
+        address,
+        cid: element.cid,
+      }
+    );
     if (response.data.success) setLiked(1);
   };
 
@@ -67,7 +70,7 @@ const Card = ({
                 <span>...</span>
               </div>
             </div>
-            {element.image_url ? (
+            {/* {element.image_url ? (
               <div>
                 <img
                   src={`https:/nftstorage.link/ipfs/${element.image_url}`}
@@ -76,8 +79,8 @@ const Card = ({
                 />
               </div>
             ) : (
-              <div className=" w-36 h-36 ml-7 mb-2 rounded-full bg-purple-400"></div>
-            )}
+            )} */}
+            {/* <div className=" w-36 h-36 ml-7 mb-2 rounded-full bg-purple-400"></div> */}
           </div>
         </div>
       </Link>

@@ -19,7 +19,6 @@ export const getJSONFromIpfs = async (cid: string) => {
     fetch("https://nftstorage.link/ipfs/" + cid)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         resolve(data);
       });
   });

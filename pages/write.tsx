@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import LeftBar from "../components/LeftBar";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import { AppDispatch } from "../redux/store";
 
 const Write = () => {
   const { address } = useSelector(selectAuthState);
@@ -19,7 +20,7 @@ const Write = () => {
   const [title, setTitle] = useState("");
   const [file, setFile] = useState();
   const [image, setImage] = useState("");
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const router = useRouter();
 
   useEffect(() => {
@@ -76,7 +77,8 @@ const Write = () => {
           />
           <button
             className="border-5 h-8 w-24 mt-16 rounded-xl bg-gray-300 text-black "
-            onClick={onSubmit}>
+            onClick={onSubmit}
+          >
             Submit
           </button>
         </div>

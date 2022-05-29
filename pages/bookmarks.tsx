@@ -4,11 +4,12 @@ import { useSelector } from "react-redux";
 import { connectWallet, selectAuthState } from "../redux/authSlice";
 import Container from "../components/Container";
 import { useDispatch } from "react-redux";
+import { AppDispatch } from "../redux/store";
 
 const Bookmarks = () => {
   const [bookmarks, setBookmarks] = useState([]);
   const { address } = useSelector(selectAuthState);
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
     if (!address) dispatch(connectWallet());
     async function fetchData() {

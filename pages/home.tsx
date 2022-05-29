@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { toast } from "react-toastify";
 import { AiOutlineClose } from "react-icons/ai";
+import { AppDispatch } from "../redux/store";
 
 const customStyles = {
   content: {
@@ -28,7 +29,7 @@ const Home = () => {
   const { address } = useSelector(selectAuthState);
   const [name, setName] = useState("");
   const [open, setOpen] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,7 +69,8 @@ const Home = () => {
         <div className="flex flex-col items-start justify-center gap-4">
           <label
             htmlFor="name"
-            className="text-2xl flex justify-between items-center w-full">
+            className="text-2xl flex justify-between items-center w-full"
+          >
             <span>Name</span>
             <AiOutlineClose onClick={() => setOpen(!open)} />
           </label>
@@ -81,7 +83,8 @@ const Home = () => {
           />
           <button
             className="px-3 py-2 outline-none border-black border-2 rounded-md self-center"
-            onClick={addUser}>
+            onClick={addUser}
+          >
             Submit
           </button>
         </div>

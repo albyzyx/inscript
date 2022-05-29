@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { connectWallet, selectAuthState } from "../redux/authSlice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import { AppDispatch } from "../redux/store";
 import Image from "next/image";
 
 const Card = ({
@@ -19,7 +20,7 @@ const Card = ({
   const [liked, setLiked] = useState(0);
   const [bookmarked, setBookmarked] = useState(false);
   const { address } = useSelector(selectAuthState);
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
     if (!address) dispatch(connectWallet());

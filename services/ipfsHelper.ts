@@ -15,7 +15,7 @@ export const uploadJSONToIpfs = async (obj: Object) => {
 };
 
 export const getJSONFromIpfs = async (cid: string) => {
-  return new Promise((resolve, reject) => {
+  return new Promise<any>((resolve, reject) => {
     fetch("https://nftstorage.link/ipfs/" + cid)
       .then((response) => response.json())
       .then((data) => {

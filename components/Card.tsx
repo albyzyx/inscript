@@ -44,7 +44,7 @@ const Card = ({
     if (response.data.success) setLiked(1);
   };
 
-  console.log(element);
+  // console.log(element);
 
   return (
     <div className="w-full">
@@ -86,10 +86,12 @@ const Card = ({
       </Link>
       <div className="flex justify-between items-center">
         <div className="flex gap-4 items-center">
-          <div className="bg-gray-300 m-1 ml-5  text-gray-700 rounded-full px-3 py-1">
+          {/* <div className="bg-gray-300 m-1 ml-5  text-gray-700 rounded-full px-3 py-1">
             Self Improvement
+          </div> */}
+          <div className="font-light mx-3">
+            {Math.ceil(Math.random() * 10)} min read
           </div>
-          <div className="font-light mx-3">12 min read</div>
         </div>
         <div className="flex gap-2 items-center text-3xl">
           {!bookmarked && !isBookmarked ? (
